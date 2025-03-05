@@ -1,7 +1,9 @@
-# Interactive Union Job Board
+# Interactive Job Board
 
 ## Project Description
 This small React web app is a prototype of an interactive union job board that allows users to view, create, edit, and delete job postings.
+
+![Demo](./media/job-board-demo-vidya.gif)
 
 ## Tools/Framework
 - React
