@@ -1,7 +1,7 @@
 # Interactive Job Board
 
 ## Project Description
-This small React web app is a prototype of an interactive union job board that allows users to view, create, edit, and delete job postings.
+This small Vite React web app is a prototype of an interactive union job board that allows users to view, create, edit, and delete job postings.
 
 ![Demo](./media/job-board-demo-vidya.gif)
 
@@ -9,6 +9,7 @@ This small React web app is a prototype of an interactive union job board that a
 - React
 - Vite
 - React Router
+- Express
 
 ## Current Features
 - View job postings
@@ -21,6 +22,6 @@ To run this project locally, ensure you have Node.js and npm installed. Then, fo
 
 ```bash
 git clone https://github.com/neophyte577/jobs-board
-cd <project-directory>
+cd <project-directory>/server
 npm install
 npm run dev
