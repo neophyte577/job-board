@@ -46,14 +46,16 @@ const App = () => {
       <Route path='/' element={<MainLayout />}>
         <Route path='/' element={ <HomePage /> } />
         <Route path='/jobs' element={ <JobsPage /> } />
+        <Route path='/jobs/:id' element={ <JobPage deleteJob={deleteJob}/> } loader={jobLoader} errorElement={<NotFoundPage />} />
         <Route path='/add-job' element={ <AddJobPage addJobSubmit={addJob} /> } />
-        <Route path='/edit-job/:id' element={ <EditJobPage updateJobSubmit={updateJob} /> } loader={jobLoader} />
-        <Route path='/jobs/:id' element={ <JobPage deleteJob={deleteJob}/> } loader={jobLoader} />
+        <Route path='/edit-job/:id' element={ <EditJobPage updateJobSubmit={updateJob} /> } loader={jobLoader} errorElement={<NotFoundPage />} />
         <Route path='*' element={ <NotFoundPage /> } />
       </Route>
     )
   );
+
   return <RouterProvider router={router} />;
+
 };
 
 export default App

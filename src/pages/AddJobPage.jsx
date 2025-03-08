@@ -4,45 +4,59 @@ import {toast} from 'react-toastify'
 
 const AddJobPage = ({addJobSubmit}) => {
 
-useEffect(() => {
-    document.title = 'Add Job';
+    useEffect(() => {
+        document.title = 'Add Job';
     }, []);
 
-  const [title, setTitle] = useState('');
-  const [type, setType] = useState("Full-Time");
-  const [location, setLocation] = useState('');
-  const [description, setDescription] = useState('');
-  const [salary, setSalary] = useState("Under $50K");
-  const [orgName, setOrgName] = useState('');
-  const [orgDescription, setOrgDescription] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+    const navigate = useNavigate();
 
-  const navigate = useNavigate();
+    const [title, setTitle] = useState('');
+    const [type, setType] = useState("Full-Time");
+    const [location, setLocation] = useState('');
+    const [description, setDescription] = useState('');
+    const [salary, setSalary] = useState("Under $50K");
+    const [orgName, setOrgName] = useState('');
+    const [orgDescription, setOrgDescription] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
 
-  const submitForm = (e) => {
-    e.preventDefault();
+    const submitForm = async (e) => {
+        e.preventDefault();
 
-    const newJob = {
-        title,
-        type,
-        location,
-        description,
-        salary,
-        org: {
-            name: orgName,
-            description: orgDescription,
-            email,
-            phone
+        const newJob = {
+            title,
+            type,
+            location,
+            description,
+            salary,
+            org: {
+                name: orgName,
+                description: orgDescription,
+                email,
+                phone
+            }
+        };
+
+        try {
+            const response = await fetch('/api/jobs', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newJob),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to add job');
+            }
+
+            toast.success('🎉 Job added successfully!');
+
+            return navigate('/jobs');  // ✅ Ensures behavior matches original function
+
+        } catch (error) {
+            toast.error('Error adding job. Please try again.');
+            console.error(error);
         }
     };
-
-    addJobSubmit(newJob);
-
-    toast.success('Congrations! Job added successfully. 🎉')    
-
-    return navigate('/jobs')
-  }
   
   return (
     <section className="bg-[#F5DBD3]">

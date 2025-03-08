@@ -1,6 +1,4 @@
 import React, {useEffect} from 'react'
-import Hero from '../components/Hero.jsx';
-import HomeCards from '../components/HomeCards.jsx'
 import JobListings from '../components/JobListings.jsx'
 
 const JobsPage = () => {

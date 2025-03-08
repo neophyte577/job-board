@@ -1,9 +1,11 @@
 import express from 'express';
 import { fileURLToPath } from 'url';
 import path from 'path';
-import jobs from './routes/listings.js';
+import jobs from './routes/requests.js';
 import logger from './middleware/logger.js';
 import { errorHandler, notFound } from './middleware/error.js';
+import fs from 'fs';
+
 const PORT = process.env.PORT || 8008;
 
 // Get directory name

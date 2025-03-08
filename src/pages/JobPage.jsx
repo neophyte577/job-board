@@ -111,17 +111,24 @@ const JobPage = ({deleteJob}) => {
   )
 };
 
-const jobLoader = async ({params}) => {
+const jobLoader = async ({ params }) => {
   const res = await fetch(`/api/jobs/${params.id}`);
+
   if (!res.ok) {
+      if (res.status === 404) {
+          // router to catch this 404 and handle in errorElement
+          throw new Response("WRONG. No such ID.", { status: 404 });
+      }
       throw new Error(`Network response was NOT okay: ${res.statusText}`);
   }
+
   const contentType = res.headers.get('content-type');
   if (!contentType || !contentType.includes('application/json')) {
       throw new TypeError("Received non-JSON response");
   }
-  const data = await res.json();
-  return data;
-}
+
+  return res.json();
+};
+
 
 export {JobPage as default, jobLoader};
