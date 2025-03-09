@@ -19,16 +19,16 @@ const JobListing = ({job}) => {
             <h3 className="text-xl text-deepUnionRed font-bold mb-1">{job.title}</h3>
         </div>
 
-        <div className="mb-5">
+        <div className="mb-2">
             {description}
             <button onClick={() => setShowFullDescription((prevState) => !prevState)} className="text-lightUnionRed ml-1 mb-3 hover:text-deepUnionRed">
               {showFullDescription ? 'Less' : 'More'}
             </button>
         </div>
 
-        <h3 className="text-unionRed mb-2">{job.salary} / Year</h3>
+        <h3 className="text-unionRed mb-3">{job.salary} / Year</h3>
 
-        <div className="border border-gray-100 mb-5"></div>
+        <div className="h-[1px] w-full bg-unionRed my-4"></div>
 
         <div className="flex flex-col lg:flex-row justify-between mb-4">
             <div className="text-deepUnionRed mb-3">
