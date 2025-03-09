@@ -4,7 +4,8 @@ import path from 'path';
 import jobs from './routes/requests.js';
 import logger from './middleware/logger.js';
 import { errorHandler, notFound } from './middleware/error.js';
-import fs from 'fs';
+import rateLimit from 'express-rate-limit'; 
+import './middleware/reset.js';
 
 const PORT = process.env.PORT || 8008;
 
@@ -23,11 +24,20 @@ app.use(express.urlencoded({ extended: false }));
 // Logger Middleware
 app.use(logger);
 
+// Rate Limiting Middleware
+const apiLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 30 // 30 requests per windowMs
+});
+
 // Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Routes
+// Job Routes
 app.use('/api/jobs', jobs);
+
+// Apply rate limiter to all API routes
+app.use('/api/', apiLimiter);
 
 // Catch-all route for React Router
 app.get('*', (req, res) => {

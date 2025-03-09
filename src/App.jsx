@@ -3,10 +3,11 @@ import React from 'react';
 import HomePage from './pages/HomePage.jsx'
 import MainLayout from './layouts/MainLayout.jsx'
 import JobsPage from './pages/JobsPage.jsx'
-import NotFoundPage from './pages/NotFoundPage.jsx';
+import NotFoundPage from './pages/NotFoundPage.jsx'
 import JobPage, {jobLoader} from './pages/JobPage.jsx'
 import AddJobPage from './pages/AddJobPage.jsx'
 import EditJobPage from './pages/EditJobPage.jsx'
+import TestPage from './pages/TestPage.jsx'
 
 const App = () => {
 
@@ -49,6 +50,7 @@ const App = () => {
         <Route path='/jobs/:id' element={ <JobPage deleteJob={deleteJob}/> } loader={jobLoader} errorElement={<NotFoundPage />} />
         <Route path='/add-job' element={ <AddJobPage addJobSubmit={addJob} /> } />
         <Route path='/edit-job/:id' element={ <EditJobPage updateJobSubmit={updateJob} /> } loader={jobLoader} errorElement={<NotFoundPage />} />
+        <Route path='/test' element={ <TestPage /> } />
         <Route path='*' element={ <NotFoundPage /> } />
       </Route>
     )
