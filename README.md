@@ -1,9 +1,13 @@
 # Interactive Job Board
 
 ## Project Description
-This small Vite React web app is a prototype of an interactive union job board that allows users to view, create, edit, and delete job postings.
+This small Vite React web app is a prototype of an interactive [union job board](https://union-job-board.onrender.com/) that allows users to view, create, edit, and delete job postings.
 
-![Demo](./media/job-board-demo-vidya.gif)
+[![Demo](./media/job-board-demo-vidya.gif)](https://union-job-board.onrender.com/)
+
+## Link
+
+https://union-job-board.onrender.com/
 
 ## Tools/Framework
 - React
