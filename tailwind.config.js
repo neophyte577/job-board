@@ -20,7 +20,8 @@ export default {
         cream: '#FFF5E1',
         butterCream: '#FFE8A1',
         paleHoney: '#FCE5B1',
-        blushClay: '#F0D1D1'
+        blushClay: '#F0D1D1',
+        summerBlush: '#F5DBD3'
       },
     },
   },

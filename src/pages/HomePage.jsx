@@ -16,7 +16,7 @@ const HomePage = () => {
         <JobListings isHome={true}/>
         <ViewAllJobs />
         <footer className='bg-red-50'>
-          <h3 className='text-unionRed text-center font-semibold'>© 1992 - 2025</h3>
+          <h3 className='text-unionRed text-center font-semibold'>© 1925 - 2025</h3>
         </footer>
       </section>
     </>

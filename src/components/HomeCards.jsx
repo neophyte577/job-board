@@ -20,7 +20,7 @@ const HomeCards = () => {
                 Browse Jobs
               </Link>                
             </Card>
-            <Card bg='bg-blushClay'>
+            <Card bg='bg-summerBlush'>
               <h2 className="text-2xl text-deepUnionRed font-bold">For Unions and Employers</h2>
               <p className="mt-2 mb-4">
                 Post your job to find the perfect labor for the role
